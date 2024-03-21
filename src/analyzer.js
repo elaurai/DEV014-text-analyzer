@@ -44,19 +44,15 @@ const analyzer = {
 
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
-    // Inicializamos el contador de números
     let count = 0;
-
-    // Iteramos sobre cada caracter en la cadena de texto
     for (let i = 0; i < text.length; i++) {
-    // Verificamos si el caracter en la posición actual es un número
-      if (!isNaN(parseFloat(text[i]))) {
-        // Si es un número, incrementamos el contador
+
+      if (!isNaN(parseInt(text[i])) || !isNaN(parseFloat(text[i]))) {
+
         count++;
       }
     }
 
-    // Retornamos el contador que indica cuántos números encontramos
     return count;
   },
   getNumberSum: (text) => {
