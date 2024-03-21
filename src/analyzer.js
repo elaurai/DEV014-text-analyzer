@@ -1,21 +1,74 @@
 const analyzer = {  
   getWordCount: (text) => {
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
+    let count = 0;
+    if (text.trim() !== "") {
+      const words = text.trim().split(" ");
+      count = words.length;
+    }
+    return count;
   },
   getCharacterCount: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
+
+    let characterCount = 0;
+    for (let i = 0; i < text.length; i++) {
+      characterCount++;
+    }
+    return characterCount;
   },
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
+
+    let caracConEsp = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === " ") {
+        caracConEsp++;
+      }  
+    }
+    const caractSinEsp = analyzer.getCharacterCount(text) - caracConEsp;
+
+    return caractSinEsp;
+
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
+    
+    const countWords = analyzer.getWordCount(text);
+    const countCharacter = analyzer.getCharacterCountExcludingSpaces(text);
+
+    const promLong = countCharacter/countWords;
+    
+    return promLong;
   },
+
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+    // Inicializamos el contador de números
+    let count = 0;
+
+    // Iteramos sobre cada caracter en la cadena de texto
+    for (let i = 0; i < text.length; i++) {
+    // Verificamos si el caracter en la posición actual es un número
+      if (!isNaN(parseFloat(text[i]))) {
+        // Si es un número, incrementamos el contador
+        count++;
+      }
+    }
+
+    // Retornamos el contador que indica cuántos números encontramos
+    return count;
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+    let sum = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (!isNaN(parseInt(text[i]))) {
+        const array_num = parseInt(text[i]);
+        sum = array_num + sum;
+      }
+    }
+    return sum;
   },
 };
 

@@ -3,11 +3,32 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Analizador de texto</title>
+  <title>Analizador de Texto</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <header>
+    <h1>Analizador de Texto</h1>
+  </header>
+  
+  <form action="analyzer.js">
+    <textarea name="user-input" cols="30" rows="10" placeholder="Ingresa tu texto aquí..." autofocus></textarea>
+    <ul type = "none">
+      <li class="Elemento" data-testid="word-count">Palabras:</li>
+      <li class="Elemento" data-testid="character-count">Caracteres:</li>
+      <li class="Elemento" data-testid="character-no-spaces-count">Caracteres Sin Espacios:</li>
+      <li class="Elemento" data-testid="number-count">Números:</li>
+      <li class="Elemento" data-testid="number-sum">Suma de Números:</li>
+      <li class="Elemento" data-testid="word-length-average">Promedio longitud:</li>
+    </ul>
+  </form>
+
+  <button id="reset-button">Limpiar Métricas</button>
+  <footer>
+    <p>Autor: Evelyn Laura</p>
+  </footer>
+      
   <script src="index.js" type="module"></script>
 </body>
 </html>
