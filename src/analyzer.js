@@ -57,10 +57,11 @@ const analyzer = {
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+    const words = text.split(" ");
     let sum = 0;
-    for (let i = 0; i < text.length; i++) {
-      if (!isNaN(parseInt(text[i]))) {
-        const array_num = parseInt(text[i]);
+    for (let i = 0; i < words.length; i++) {
+      if (!isNaN(parseFloat(words[i]))) {
+        const array_num = parseFloat(words[i]);
         sum = array_num + sum;
       }
     }
