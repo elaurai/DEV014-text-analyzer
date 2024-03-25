@@ -22,8 +22,8 @@ const analyzer = {
 
     const words = text.split(" ");
     let caracConEsp = 0;
-    for (let i = 0; i < words.length; i++) {
-      if (words[i] !== " ") {
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] !== " ") {
         caracConEsp++;
       }  
     }
