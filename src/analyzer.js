@@ -20,9 +20,10 @@ const analyzer = {
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
 
+    const words = text.split(" ");
     let caracConEsp = 0;
-    for (let i = 0; i < text.length; i++) {
-      if (text[i] !== " ") {
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] !== " ") {
         caracConEsp++;
       }  
     }
