@@ -22,13 +22,12 @@ const analyzer = {
 
     let caracConEsp = 0;
     for (let i = 0; i < text.length; i++) {
-      if (text[i] === " ") {
+      if (text[i] !== " ") {
         caracConEsp++;
       }  
     }
-    const caractSinEsp = analyzer.getCharacterCount(text) - caracConEsp;
 
-    return caractSinEsp;
+    return caracConEsp;
 
   },
   getAverageWordLength: (text) => {    
@@ -44,10 +43,11 @@ const analyzer = {
 
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+    const words = text.split(" ");
     let count = 0;
-    for (let i = 0; i < text.length; i++) {
+    for (let i = 0; i < words.length; i++) {
 
-      if (!isNaN(parseInt(text[i])) || !isNaN(parseFloat(text[i]))) {
+      if (!isNaN(parseFloat(words[i]))) {
 
         count++;
       }
