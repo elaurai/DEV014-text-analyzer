@@ -64,7 +64,11 @@ const analyzer = {
     const words = text.split(" ");
     let sum = 0;
     for (let i = 0; i < words.length; i++) {
-      if (!isNaN(parseFloat(words[i]))) {
+      let temp = words[i];
+      if(temp[temp.length-1] ==='.'){
+        temp=temp.slice(0, -1)
+      }
+      if (!isNaN(parseFloat(temp)) && !isNaN(Number(temp))) {
         const array_num = parseFloat(words[i]);
         sum = array_num + sum;
       }
