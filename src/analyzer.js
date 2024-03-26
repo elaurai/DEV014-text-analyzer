@@ -20,26 +20,26 @@ const analyzer = {
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
 
-    const words = text.split(" ");
-    let caracConEsp = 0;
+    let textNoSpace = "";
+
     for (let i = 0; i < text.length; i++) {
-      if (text[i] !== " ") {
-        caracConEsp++;
-      }  
-    }
-
-    return caracConEsp;
-
+      if (text[i] !== " " && text[i] !== "," && text[i] !== ".") {
+        textNoSpace += text[i];
+      }
+    } 
+    return textNoSpace.length;
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
     
     const countWords = analyzer.getWordCount(text);
-    const countCharacter = analyzer.getCharacterCountExcludingSpaces(text);
-
-    const promLong = countCharacter/countWords;
-    
-    return promLong;
+    let countCharacter = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] !== " ") {
+        countCharacter++;
+      }
+    }
+    return parseFloat((countCharacter/countWords).toFixed(2));
   },
 
   getNumberCount: (text) => {
@@ -47,8 +47,11 @@ const analyzer = {
     const words = text.split(" ");
     let count = 0;
     for (let i = 0; i < words.length; i++) {
-
-      if (!isNaN(parseFloat(words[i]))) {
+      let temp = words[i];
+      if(temp[temp.length-1] ==='.'){
+        temp=temp.slice(0, -1)
+      }
+      if (!isNaN(parseFloat(temp)) && !isNaN(Number(temp))) {
 
         count++;
       }
